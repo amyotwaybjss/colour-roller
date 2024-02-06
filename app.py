@@ -14,7 +14,8 @@ instructions = f'''
     (Type 'help' to repeat this message)
     
     Active Sheets: {sheet_list}'
-    Demo Mode: {demo}'''
+    Demo Mode: {demo}
+'''
 
 print(instructions)
 

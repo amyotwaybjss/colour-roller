@@ -1,7 +1,6 @@
 # import openpyxl as xl
 import random as ran
 from env import wb
-# why is this importing everything from env?
 
 # wb = xl.load_workbook('colours2.xlsx')
 # moved to env
