@@ -33,7 +33,7 @@ while True:
         if r != "":
             roller(r)
         else:
-            print("Please enter a sheet to start!")
+            print("Please enter a valid sheet name to start!")
     elif command == "config":
         print("Whoops, I've not coded that one yet...")
     elif command == "quit":
