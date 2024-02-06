@@ -36,14 +36,13 @@ while True:
             # demo = not demo  # this works with True/False, but On/Off works better for dictionary
             demo = "On" if demo == "Off" else "Off"
             r = ""  # r needs to be reset, in case it was previously set to a non-demo sheet
-            print(f'Demo should be: {demo}')
             print(status(demo, sheet_list))
         elif command in sheet_list:
-            roller(command)
+            print(roller(command))
             r = command
         elif command == "r":  # nested if to avoid repeating code
             if r != "":
-                roller(r)
+                print(roller(r))
             else:
                 print("Please enter a valid sheet name to start!")
         elif command == "config":

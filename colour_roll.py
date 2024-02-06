@@ -2,12 +2,6 @@
 import random as ran
 from env import wb
 
-# wb = xl.load_workbook('colours2.xlsx')
-# moved to env
-
-# sheet = wb['markers']
-# this is now dynamic
-
 
 def roller(sheet):
     colours = wb[sheet]
@@ -29,9 +23,9 @@ def roller(sheet):
     second_col = ran.choice(selection)
 
     if first_col == second_col:
-        print(f'{header}: {first_col} only')
+        result = f'{header}: {first_col} only'
     else:
-        print(f'{header}: {first_col} and {second_col}')
+        result = f'{header}: {first_col} and {second_col}'
 
+    return result
 
-# roller('watercolours')
