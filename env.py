@@ -7,12 +7,13 @@ wb = xl.load_workbook('colours2.xlsx')
 sheet_list = wb.sheetnames
 # list of active sheet names
 
+new_line = "\n"
 
-def print_env_message():
-    print("This is from env")
 
-# This function is added as without a function, the import statement does not work correctly;
+def status(mode, sheets):
+    stat = f'Demo Mode: {mode}{new_line}Active Sheets: {sheets}'
+    return stat
+
+# Note that without a function, importing variables does not work correctly;
 # Pulls in everything rather than just the respective variables.
 
-
-print(sheet_list)
