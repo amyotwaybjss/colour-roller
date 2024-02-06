@@ -2,20 +2,25 @@ from env import sheet_list
 from colour_roll import roller
 
 r = ""
-demo = False
+# demo = False
+demo = "Off"
+new_line = "\n"
+# status = f'Demo Mode: {demo}{new_line}Active Sheets: {sheet_list}'
+# f strings are immutable, so this will not update automatically.
 
 instructions = f'''
-    Hello, welcome! 
-    sheet name = Rolls from that sheet.
-    r = Re-Rolls using current settings.
-    config = Adjusts randomness settings.
-    demo = Turns demo mode on or off. 
-    quit = Quits the program.
-    (Type 'help' to repeat this message)
+Hello, welcome! 
+sheet name = Rolls from that sheet.
+r = Re-Rolls using current settings.
+config = Adjusts randomness settings.
+demo = Turns demo mode on or off. 
+quit = Quits the program.
+(Type 'help' to repeat this message)
     
-    Active Sheets: {sheet_list}'
-    Demo Mode: {demo}
+Demo Mode: {demo}{new_line}Active Sheets: {sheet_list}
 '''
+
+# Demo Mode: {demo}{new_line}Active Sheets: {sheet_list}
 
 print(instructions)
 
@@ -24,8 +29,12 @@ while True:
     if command == "help":
         print(instructions)
     elif command == "demo":
-        demo = not demo
-        print(f'Demo mode: {demo}')
+        # demo = not demo
+        # this works with True/False, but On/Off works better for dictionary
+        demo = "On" if demo == "Off" else "Off"
+        r = ""  # r needs to be reset, in case it was previously set to a non-demo sheet
+        print(f"Demo Mode: {demo}{new_line}Active Sheets: {sheet_list}")
+        # print(status)
     elif command in sheet_list:
         roller(command)
         r = command
