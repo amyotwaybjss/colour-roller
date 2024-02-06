@@ -4,15 +4,18 @@ from colour_roll import roller
 r = ""
 demo = False
 
-instructions = '''Hello, welcome! 
+instructions = f'''
+    Hello, welcome! 
     sheet name = Rolls from that sheet.
     r = Re-Rolls using current settings.
     config = Adjusts randomness settings.
     demo = Turns demo mode on or off. 
     quit = Quits the program.
     (Type 'help' to repeat this message)
-''' + f'    Active Sheets: {sheet_list}' + f'''
-    Demo Mode: {demo}'''
+    
+    Active Sheets: {sheet_list}'
+    Demo Mode: {demo}
+'''
 
 print(instructions)
 
