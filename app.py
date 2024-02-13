@@ -5,13 +5,14 @@ import inspect
 # Setting initial values
 
 r = ""
-demo = "Off"
+demo = "Demo Off"
 step = 0
 
 # Loop begins here
 
 while True:
 
+    # inspect.cleandoc is cleaning up the indentation
     instructions = new_line+inspect.cleandoc('''
             sheet name = Rolls from that sheet.
             r = Re-Rolls using current settings.
@@ -23,19 +24,25 @@ while True:
 
     if step == 0:
 
+        # first run of the loop only
+
         print("Hello, Welcome!")
         print(instructions)
         step = 1
 
     else:
 
+        # user enters instruction
+
         command = input("Instruction: ").lower()
+
+        # main body of the loop
+
         if command == "help":
             print(instructions)
         elif command == "demo":
-            # demo = not demo  # this works with True/False, but On/Off works better for dictionary
-            demo = "On" if demo == "Off" else "Off"
-            r = ""  # r needs to be reset, in case it was previously set to a non-demo sheet
+            demo = "Demo On" if demo == "Demo Off" else "Demo Off"
+            r = ""  # r needs to be reset here, in case it was previously set to a non-demo sheet
             print(status(demo, sheet_list))
         elif command in sheet_list:
             print(roller(command))
@@ -48,9 +55,13 @@ while True:
         elif command == "config":
             print("Whoops, I've not coded that one yet...")
         elif command == "quit":
-            break
+            break  # this exits the while loop
         else:
             print("Sorry, I don't understand...")
+
+print("See you next time!")
+
+# NOTES #
 
 # config settings:
 # pick random mode - choices(match,mix,random)

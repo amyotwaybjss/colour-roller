@@ -11,7 +11,7 @@ new_line = "\n"
 
 
 def status(mode, sheets):
-    stat = f'Demo Mode: {mode}{new_line}Active Sheets: {sheets}'
+    stat = f'Mode: {mode}{new_line}Active Sheets: {sheets}'
     return stat
 
 # Note that without a function, importing variables does not work correctly;
