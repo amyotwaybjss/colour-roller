@@ -17,3 +17,13 @@ def status(mode, sheets):
 # Note that without a function, importing variables does not work correctly;
 # Pulls in everything rather than just the respective variables.
 
+
+sheet_category = {
+    "pii": ["personal", "private", "nonexistent"],
+    "sensitive": ["private", "business1", "business2", "business3"],
+    # "test": ["private"]
+}
+
+# this creates a dictionary for sheet category
+# permissions controlled in mode_select
+# note that the brackets are essential!
