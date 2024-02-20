@@ -2,7 +2,8 @@
 
 import openpyxl as xl
 
-wb = xl.load_workbook('colours2.xlsx')
+wb_name = 'colours3'
+wb = xl.load_workbook(f'{wb_name}.xlsx')
 
 sheet_list = wb.sheetnames
 # list of active sheet names
