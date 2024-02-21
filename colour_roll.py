@@ -28,4 +28,3 @@ def roller(sheet):
         result = f'{header}: {first_col} and {second_col}'
 
     return result
-
