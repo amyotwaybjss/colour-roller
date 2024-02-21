@@ -31,6 +31,3 @@ def data_clean(workbook, name):
     workbook.save(f'{name}_cleaned.xlsx')
 
 # this does not yet clear duplicates
-# in env, need to check that clean ver exists, if not, run data_clean
-# note that whatever is put into the function, the name is defined by wb_name
-# ideally, data_clean(name) would return name_cleaned.xlsx
