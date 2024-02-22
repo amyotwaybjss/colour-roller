@@ -15,7 +15,6 @@ def data_clean(workbook, name):
         for column in range(1, sheet.max_column+1):
             for row in range(1, sheet.min_row+1):
                 header = (sheet.cell(row, column).value.upper())
-                # print(header)
                 header_cell = sheet.cell(row, column)
                 header_cell.value = header
             for row in range(2, sheet.max_row+1):
@@ -24,7 +23,6 @@ def data_clean(workbook, name):
                     pass
                 else:
                     cleaned = cell_clean(sheet, cell.row, cell.column)
-                    # print(cleaned)
                     cleaned_cell = sheet.cell(row, column)
                     cleaned_cell.value = cleaned
 

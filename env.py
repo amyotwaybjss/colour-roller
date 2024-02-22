@@ -24,7 +24,6 @@ clean_exists(wb_input, wb_name)
 wb = xl.load_workbook(f'{wb_name}_cleaned.xlsx')
 
 sheet_list = wb.sheetnames
-# list of active sheet names
 
 new_line = "\n"
 
@@ -39,8 +38,7 @@ def status(mode, sheets):
 
 sheet_category = {
     "pii": ["personal", "private", "nonexistent"],
-    "sensitive": ["private", "business1", "business2", "business3"],
-    # "test": ["private"]
+    "sensitive": ["private", "business1", "business2", "business3"]
 }
 
 # this creates a dictionary for sheet category

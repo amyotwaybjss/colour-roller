@@ -1,10 +1,9 @@
 # import openpyxl as xl
 import random as ran
-from env import wb
 
 
-def roller(sheet):
-    colours = wb[sheet]
+def roller(load, sheet):
+    colours = load[sheet]
     max_col = colours.max_column
 
     col_select = ran.randint(1, max_col)

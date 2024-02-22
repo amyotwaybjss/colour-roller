@@ -1,38 +1,32 @@
-from env import sheet_category, sheet_list
+from env import sheet_category
 
 category_list = ["default", "admin"]
 
 for values in sheet_category:
     category_list.append(values)
 
-# test #
-print(f'sheet_category: {sheet_category}')
-print(f'category_list: {category_list}')
-print(f'sheet_list: {sheet_list}')
-print('')
 
-
-def active(mode):
+def active(mode, cat, lis):
 
     mode = mode.lower()
     active_sheets = []
     categorised = []
 
-    for category in sheet_category.values():
+    for category in cat.values():
         for sheet in category:
             if sheet not in categorised:
                 categorised.append(sheet)
 
     if mode == "admin":
-        active_sheets = sheet_list
+        active_sheets = lis
 
-    elif mode in sheet_category and mode != "default":
-        for sheet in sheet_category[mode]:
-            if sheet in sheet_list:
+    elif mode in cat and mode != "default":
+        for sheet in cat[mode]:
+            if sheet in lis:
                 active_sheets.append(sheet)
 
     else:
-        for sheet in sheet_list:
+        for sheet in lis:
             if sheet not in categorised:
                 active_sheets.append(sheet)
 
