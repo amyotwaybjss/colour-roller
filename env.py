@@ -7,10 +7,19 @@ from data_clean import data_clean
 wb_name = 'colours2'
 force_refresh = False
 
-wb_input = xl.load_workbook(f'{wb_name}.xlsx')
+try:
+    wb_input = xl.load_workbook(f'{wb_name}.xlsx')
+except FileNotFoundError:
+    print('Error: Named sheet has not been found, please check the file and re-run.')
+    quit()
 
-if path.isfile(f'./{wb_name}_cleaned.xlsx') is False or force_refresh is True:
-    data_clean(wb_input, wb_name)
+
+def clean_exists(load, name):
+    if path.isfile(f'./{name}_cleaned.xlsx') is False or force_refresh is True:
+        data_clean(load, name)
+
+
+clean_exists(wb_input, wb_name)
 
 wb = xl.load_workbook(f'{wb_name}_cleaned.xlsx')
 
