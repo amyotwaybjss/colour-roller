@@ -7,6 +7,7 @@ import inspect
 
 r = ""
 mode = "Default"
+setting = "mix"
 step = 0
 active_sheets = sheet_list
 
@@ -67,12 +68,12 @@ while True:
             step = 0
 
         elif command in active_sheets:
-            print(roller(wb, command))
+            print(roller(wb, command, setting))
             r = command
 
         elif command == "r":  # nested if to avoid repeating code
             if r != "":
-                print(roller(wb, r))
+                print(roller(wb, r, setting))
             else:
                 print("Please enter a valid sheet name to start!")
 
@@ -88,9 +89,3 @@ while True:
 
 print("See you next time!")
 
-# NOTES #
-
-# config settings:
-# pick random mode - choices(match,mix,random)
-# pick random priority - pick list first then col or pick col first then list
-# how does this behaviour work in mix mode?
