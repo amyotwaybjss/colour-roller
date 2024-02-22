@@ -1,28 +1,64 @@
 import random as ran
 
 
-def roller(load, sheet):
-    colours = load[sheet]
-    max_col = colours.max_column
+def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours)
+    sheet_name = workbook[sheet]
+    max_col = sheet_name.max_column
 
-    col_select = ran.randint(1, max_col)
+    match = max_col == 1 or setting == 'match'
 
-    selection = []
-    header = colours.cell(1, col_select).value
+    # select a random column from chosen sheet
 
-    for rows in range(2, colours.max_row+1):
-        if colours.cell(rows, col_select).value is None:
+    col_select1 = ran.randint(1, max_col)
+    col_select2 = col_select1
+
+    # if more than one column, set col_select2 to be different column
+
+    if not match:
+        while col_select2 == col_select1:
+            col_select2 = ran.randint(1, max_col)
+
+    pick = []
+    headers = []
+
+# loop through the two chosen columns and select random options
+
+    for selected in [col_select1, col_select2]:
+
+        header = sheet_name.cell(1, selected).value
+
+        selection = []
+
+        for rows in range(2, sheet_name.max_row+1):
+            if sheet_name.cell(rows, selected).value is None:
+                pass
+            else:
+                value = sheet_name.cell(rows, selected).value
+                selection.append(value)
+
+        random_choice = f'{header}: {ran.choice(selection)}'
+
+        if random_choice in pick:
             pass
         else:
-            value = colours.cell(rows, col_select).value
-            selection.append(value)
+            pick.append(random_choice)
+            if header in headers:
+                pass
+            else:
+                headers.append(header)
 
-    first_col = ran.choice(selection)
-    second_col = ran.choice(selection)
+    # formatting the output string
+    # this accounts for the same pick twice and options from same/different columns
 
-    if first_col == second_col:
-        result = f'{header}: {first_col} only'
+    first = pick[0]
+
+    if (len(pick)) == 1:
+        result = f'{first} only'
     else:
-        result = f'{header}: {first_col} and {second_col}'
+        if (len(headers)) == 1:
+            second = pick[1].split(' ')[1]
+        else:
+            second = pick[1]
+        result = f'{first} and {second}'
 
     return result
