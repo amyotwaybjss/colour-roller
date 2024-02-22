@@ -4,8 +4,21 @@ import openpyxl as xl
 import os.path as path
 from data_clean import data_clean
 
+# USER SETTINGS #
+
 wb_name = 'colours2'
 force_refresh = False
+
+sheet_category = {
+    "pii": ["personal", "private", "nonexistent"],
+    "sensitive": ["private", "business1", "business2", "business3"]
+}
+
+# this creates a dictionary for sheet category
+# permissions controlled in mode_select
+# note that the brackets are essential, even if there is only one entry!
+
+# END USER SETTINGS #
 
 try:
     wb_input = xl.load_workbook(f'{wb_name}.xlsx')
@@ -33,14 +46,4 @@ def status(mode, sheets):
     return stat
 
 # Note that without a function, importing variables does not work correctly;
-# Pulls in everything rather than just the respective variables.
-
-
-sheet_category = {
-    "pii": ["personal", "private", "nonexistent"],
-    "sensitive": ["private", "business1", "business2", "business3"]
-}
-
-# this creates a dictionary for sheet category
-# permissions controlled in mode_select
-# note that the brackets are essential!
+# Everything is pulled in rather than just the respective variables.

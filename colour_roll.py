@@ -1,4 +1,3 @@
-# import openpyxl as xl
 import random as ran
 
 
