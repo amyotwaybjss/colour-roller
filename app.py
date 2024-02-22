@@ -1,4 +1,4 @@
-from env import (sheet_list, new_line, status)
+from env import (wb, sheet_category, sheet_list, new_line, status)
 from mode_select import category_list, active
 from colour_roll import roller
 import inspect
@@ -23,7 +23,7 @@ while True:
             mode = Returns to the mode select screen.
             quit = Quits the program.
             (Type 'help' to repeat this message)
-            ''')+(new_line*2)  # +status(mode, sheet_list)+new_line
+            ''')+(new_line*2)
 
     if step == 0:
 
@@ -43,7 +43,7 @@ while True:
         else:
             mode = "Default"
 
-        active_sheets = active(mode)
+        active_sheets = active(mode, sheet_category, active_sheets)
 
         print(instructions)
         print(status(mode, active_sheets)+new_line)
@@ -62,24 +62,26 @@ while True:
         if command == "help":
             print(instructions)
             print(status(mode, active_sheets) + new_line)
-        # elif command == "demo":
-        #     mode = "Demo Mode" if mode != "Demo Mode" else "Default"
-        #     r = ""  # r needs to be reset here, in case it was previously set to a non-demo sheet
-        #     print(status(mode, sheet_list))
+
         elif command == "mode":
             step = 0
+
         elif command in active_sheets:
-            print(roller(command))
+            print(roller(wb, command))
             r = command
+
         elif command == "r":  # nested if to avoid repeating code
             if r != "":
-                print(roller(r))
+                print(roller(wb, r))
             else:
                 print("Please enter a valid sheet name to start!")
+
         elif command == "config":
             print("Whoops, I've not coded that one yet...")
+
         elif command == "quit":
             break  # this exits the while loop
+
         else:
             print("Sorry, I don't understand...")
             # this is a generic error, we want an error for access not allowed
@@ -92,4 +94,3 @@ print("See you next time!")
 # pick random mode - choices(match,mix,random)
 # pick random priority - pick list first then col or pick col first then list
 # how does this behaviour work in mix mode?
-# demo mode hides/locks down certain options/maybe at the start a demo mode True/False can be set
