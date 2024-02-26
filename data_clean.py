@@ -4,6 +4,7 @@ import re  # processes regex
 def cell_clean(sheet, cell_row, cell_col):
     input_cell = str(sheet.cell(cell_row, cell_col).value)
     special_char = re.sub(r'[^A-Za-z0-9\s]+', '', input_cell)
+    # the r'' tells Python it is a raw string, so the \s does not error
     double_space = ' '.join(special_char.split())
     lower_clean = double_space.lower().replace(' ', '_')
 

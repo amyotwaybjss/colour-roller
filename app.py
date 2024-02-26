@@ -1,4 +1,5 @@
-from env import (wb, sheet_category, sheet_list, new_line, status)
+from env import (wb, sheet_list, new_line, status)
+from user_settings import sheet_category
 from mode_select import category_list, active
 from colour_roll import roller
 import inspect
@@ -7,7 +8,7 @@ import inspect
 
 r = ""
 mode = "Default"
-setting = "mix"
+setting = "mix"  # this needs to be changeable in the app
 step = 0
 active_sheets = sheet_list
 
@@ -26,6 +27,13 @@ while True:
             (Type 'help' to repeat this message)
             ''')+(new_line*2)
 
+    settings_detail = new_line+inspect.cleandoc('''
+            Settings:
+            mix = Picks from two different lists
+            match = Picks from same list
+            random = Picks either from the same list or different list
+            ''')+(new_line*2)
+
     if step == 0:
 
         # first run of the loop only
@@ -42,9 +50,9 @@ while True:
         if init_mode in category_list:
             mode = init_mode
         else:
-            mode = "Default"
+            mode = "default"
 
-        active_sheets = active(mode, sheet_category, active_sheets)
+        active_sheets = active(mode, sheet_category, sheet_list)
 
         print(instructions)
         print(status(mode, active_sheets)+new_line)
@@ -88,4 +96,3 @@ while True:
             # this is a generic error, we want an error for access not allowed
 
 print("See you next time!")
-

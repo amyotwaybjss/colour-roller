@@ -1,9 +1,13 @@
 import random as ran
+# from env import wb  # testing
 
 
 def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours)
     sheet_name = workbook[sheet]
     max_col = sheet_name.max_column
+
+    if setting == 'random':
+        setting = ran.choice(['match', 'mix'])
 
     match = max_col == 1 or setting == 'match'
 
@@ -62,3 +66,7 @@ def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours)
         result = f'{first} and {second}'
 
     return result
+
+
+# test = roller(wb, 'watercolours', 'random')
+# print(test)
