@@ -1,5 +1,4 @@
 import random as ran
-# from env import wb  # testing
 
 
 def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours)
@@ -66,7 +65,3 @@ def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours)
         result = f'{first} and {second}'
 
     return result
-
-
-# test = roller(wb, 'watercolours', 'random')
-# print(test)
