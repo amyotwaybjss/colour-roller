@@ -52,7 +52,7 @@ while True:
         else:
             mode = "default"
 
-        active_sheets = active(mode, sheet_category, active_sheets)
+        active_sheets = active(mode, sheet_category, sheet_list)
 
         print(instructions)
         print(status(mode, active_sheets)+new_line)
