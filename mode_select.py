@@ -1,5 +1,4 @@
 from user_settings import sheet_category
-from env import sheet_list  # testing
 
 category_list = ["default", "admin"]
 
