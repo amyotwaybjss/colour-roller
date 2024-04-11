@@ -10,6 +10,9 @@ try:
 except FileNotFoundError:
     print('Error: Named sheet has not been found, please check the file and re-run.')
     quit()
+except PermissionError:
+    print('Error: Unable to access file, please check file is closed and re-run.')
+    quit()
 
 
 def clean_exists(load, name):

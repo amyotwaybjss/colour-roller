@@ -1,14 +1,18 @@
 import random as ran
 
 
-def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours)
+def roller(workbook, sheet, setting):  # e.g. roller(wb, watercolours, match)
     sheet_name = workbook[sheet]
     max_col = sheet_name.max_column
 
     if setting == 'random':
         setting = ran.choice(['match', 'mix'])
 
-    match = max_col == 1 or setting == 'match'
+    match = max_col == 1 or setting == 'match'  # result binary TRUE/FALSE
+
+    # Here we need to split - random cell, look up col, assign col_select1.
+    # col_select2 = col_select1.
+    # while col_select
 
     # select a random column from chosen sheet
 
