@@ -1,5 +1,5 @@
-from env import (wb, sheet_list, new_line, status,
-                 instructions, shuffle_detail, introduction, shuffle_options, category_list)
+from env import (wb, sheet_list, status, shuffle_options, category_list,
+                 new_line, introduction, instructions, shuffle_detail)
 from user_settings import sheet_category
 from mode_select import active
 from colour_roll import roller
@@ -7,7 +7,7 @@ from colour_roll import roller
 # Setting initial values
 
 r = ""
-mode = "Default"
+mode = "default"
 shuffle = "mix"
 step = 0
 active_sheets = sheet_list
@@ -26,8 +26,7 @@ while True:
 
         if init_mode in category_list:
             mode = init_mode
-        else:
-            mode = "default"
+        # else not needed as it will stay with initial/prior set setting
 
         active_sheets = active(mode, sheet_category, sheet_list)
 
@@ -56,7 +55,7 @@ while True:
             print(roller(wb, command, shuffle))
             r = command
 
-        elif command == "r":  # nested if to avoid repeating code
+        elif command == "r":
             if r != "":
                 print(roller(wb, r, shuffle))
             else:
@@ -69,10 +68,10 @@ while True:
                 shuffle = shuffle_set
 
         elif command == "quit":
-            break  # this exits the while loop
+            break
+            # this exits the while loop
 
         else:
             print("Sorry, I don't understand...")
-            # this is a generic error, we want an error for access not allowed
 
 print("See you next time!")
