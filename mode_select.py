@@ -1,6 +1,5 @@
 from user_settings import sheet_category
-
-category_list = ["default", "admin"]
+from env import category_list
 
 for values in sheet_category:
     category_list.append(values)
@@ -39,6 +38,5 @@ def active(mode, cat, lis):
 
 # let us assume the following:
 # 1 'default' mode gives access to only unlabelled sheets
-# 2 'pii' mode gives access to 'pii' only
-# 3 'sensitive' mode gives access to 'sensitive' only
-# 4 'admin' mode gives access to all
+# 2 'x' mode gives access to 'x' only
+# 3 'admin' mode gives access to all
