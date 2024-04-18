@@ -12,6 +12,11 @@ from user_settings import wb_name, force_refresh
 
 new_line = "\n"
 
+introduction = inspect.cleandoc('''
+    Hello, Welcome! 
+    Select a mode or press enter to skip.
+    ''')
+
 instructions = new_line + inspect.cleandoc('''
         sheet name = Rolls from that sheet.
         r = Re-Rolls using current settings.
@@ -21,17 +26,12 @@ instructions = new_line + inspect.cleandoc('''
         (Type 'help' to repeat this message)
         ''') + new_line
 
-settings_detail = new_line + inspect.cleandoc('''
-        Settings:
+shuffle_detail = new_line + inspect.cleandoc('''
+        Shuffle Settings:
         mix = Picks from two different lists
         match = Picks from same list
         random = Picks either from the same list or different list
         ''') + new_line
-
-introduction = inspect.cleandoc('''
-    Hello, Welcome! 
-    Select a mode or press enter to skip.
-    ''')
 
 # Creating required functions
 # Note that without a function, importing variables does not work correctly
