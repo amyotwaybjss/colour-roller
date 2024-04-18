@@ -19,14 +19,14 @@ instructions = new_line+inspect.cleandoc('''
         mode = Returns to the mode select screen.
         quit = Quits the program.
         (Type 'help' to repeat this message)
-        ''')+(new_line*2)
+        ''')+new_line
 
 settings_detail = new_line + inspect.cleandoc('''
         Settings:
         mix = Picks from two different lists
         match = Picks from same list
         random = Picks either from the same list or different list
-        ''') + (new_line * 2)
+        ''') + new_line
 
 introduction = inspect.cleandoc('''
     Hello, Welcome! 
