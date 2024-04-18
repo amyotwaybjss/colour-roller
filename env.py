@@ -12,14 +12,14 @@ from user_settings import wb_name, force_refresh
 
 new_line = "\n"
 
-instructions = new_line+inspect.cleandoc('''
+instructions = new_line + inspect.cleandoc('''
         sheet name = Rolls from that sheet.
         r = Re-Rolls using current settings.
         config = Adjusts randomness settings.
         mode = Returns to the mode select screen.
         quit = Quits the program.
         (Type 'help' to repeat this message)
-        ''')+new_line
+        ''') + new_line
 
 settings_detail = new_line + inspect.cleandoc('''
         Settings:
