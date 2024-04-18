@@ -7,7 +7,6 @@ def cell_clean(sheet, cell_row, cell_col):
     # the r'' tells Python it is a raw string, so the \s does not error
     double_space = ' '.join(special_char.split())
     lower_clean = double_space.lower().replace(' ', '_')
-
     return lower_clean
 
 
