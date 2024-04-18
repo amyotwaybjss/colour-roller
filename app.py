@@ -1,13 +1,14 @@
-from env import (wb, sheet_list, new_line, status, instructions, shuffle_detail, introduction)
+from env import (wb, sheet_list, new_line, status,
+                 instructions, shuffle_detail, introduction, shuffle_options, category_list)
 from user_settings import sheet_category
-from mode_select import category_list, active
+from mode_select import active
 from colour_roll import roller
 
 # Setting initial values
 
 r = ""
 mode = "Default"
-shuffle = "mix"  # this needs to be changeable in the app
+shuffle = "mix"
 step = 0
 active_sheets = sheet_list
 
@@ -62,7 +63,10 @@ while True:
                 print("Please enter a valid sheet name to start!")
 
         elif command == "config":
-            print("Whoops, I've not coded that one yet...")
+            print(shuffle_detail)
+            shuffle_set = input("Select: ".lower())
+            if shuffle_set in shuffle_options:
+                shuffle = shuffle_set
 
         elif command == "quit":
             break  # this exits the while loop

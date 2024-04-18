@@ -11,6 +11,8 @@ from user_settings import wb_name, force_refresh
 # inspect.cleandoc is cleaning up the indentation
 
 new_line = "\n"
+shuffle_options = ['mix', 'match', 'random']
+category_list = ["default", "admin"]
 
 introduction = inspect.cleandoc('''
     Hello, Welcome! 
