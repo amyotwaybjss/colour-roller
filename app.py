@@ -1,8 +1,7 @@
-from env import (wb, sheet_list, new_line, status)
+from env import (wb, sheet_list, new_line, status, instructions, settings_detail, introduction)
 from user_settings import sheet_category
 from mode_select import category_list, active
 from colour_roll import roller
-import inspect
 
 # Setting initial values
 
@@ -16,32 +15,9 @@ active_sheets = sheet_list
 
 while True:
 
-    # inspect.cleandoc is cleaning up the indentation
-    # as instructions were not dynamically updating the status func was moved out
-    instructions = new_line+inspect.cleandoc('''
-            sheet name = Rolls from that sheet.
-            r = Re-Rolls using current settings.
-            config = Adjusts randomness settings.
-            mode = Returns to the mode select screen.
-            quit = Quits the program.
-            (Type 'help' to repeat this message)
-            ''')+(new_line*2)
-
-    settings_detail = new_line+inspect.cleandoc('''
-            Settings:
-            mix = Picks from two different lists
-            match = Picks from same list
-            random = Picks either from the same list or different list
-            ''')+(new_line*2)
-
     if step == 0:
 
         # first run of the loop only
-
-        introduction = inspect.cleandoc('''
-        Hello, Welcome! 
-        Select a mode or press enter to skip.
-        ''')
 
         print(introduction)
 
