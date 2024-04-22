@@ -5,10 +5,10 @@ def roller(workbook, sheet, shuffle):  # e.g. roller(wb, watercolours, match)
     sheet_name = workbook[sheet]
     max_col = sheet_name.max_column
 
-    if shuffle == 'random':
-        shuffle = ran.choice(['match', 'mix'])
+    if shuffle == "random":
+        shuffle = ran.choice(["match", "mix"])
 
-    match = max_col == 1 or shuffle == 'match'  # result binary TRUE/FALSE
+    match = max_col == 1 or shuffle in ("match", "single")  # result binary TRUE/FALSE
 
     # Here we need to split - random cell, look up col, assign col_select1.
     # col_select2 = col_select1.
@@ -45,7 +45,7 @@ def roller(workbook, sheet, shuffle):  # e.g. roller(wb, watercolours, match)
 
         random_choice = f'{header}: {ran.choice(selection)}'
 
-        if random_choice in pick:
+        if random_choice in pick or (len(pick) == 1 and shuffle == "single"):
             pass
         else:
             pick.append(random_choice)

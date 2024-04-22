@@ -11,7 +11,7 @@ from user_settings import wb_name, force_refresh
 # inspect.cleandoc is cleaning up the indentation
 
 new_line = "\n"
-shuffle_options = ['mix', 'match', 'random']
+shuffle_options = ["mix", "match", "random", "single"]
 category_list = ["default", "admin"]
 
 introduction = inspect.cleandoc('''
@@ -33,6 +33,7 @@ shuffle_detail = new_line + inspect.cleandoc('''
         mix = Picks from two different lists
         match = Picks from same list
         random = Picks either from the same list or different list
+        single = Picks a single item
         ''') + new_line
 
 # Creating required functions
