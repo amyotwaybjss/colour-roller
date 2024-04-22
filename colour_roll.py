@@ -28,7 +28,7 @@ def roller(workbook, sheet, shuffle):  # e.g. roller(wb, watercolours, match)
     pick = []
     headers = []
 
-# loop through the two chosen columns and select random options
+    # loop through the two chosen columns and select random options
 
     for selected in [col_select1, col_select2]:
 

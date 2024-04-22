@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+
+offline/*
+*cleaned.xlsx
+.idea/*
+.venv/*
+__pycache__/
