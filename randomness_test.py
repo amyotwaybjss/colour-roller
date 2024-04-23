@@ -7,7 +7,7 @@ from collections import Counter
 
 sheet = "test"
 shuffle = "single"
-tests = 100
+tests = 500
 results = []
 
 # output = roller(wb, sheet, shuffle).split(" ")[1]
