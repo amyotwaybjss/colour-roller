@@ -1,5 +1,5 @@
-from env import (wb, sheet_list, status, shuffle_options, category_list,
-                 new_line, introduction, instructions, shuffle_detail)
+from env import (wb, sheet_list, status, shuffle_options, priority_options, category_list,
+                 new_line, introduction, instructions, config_detail)
 from user_settings import sheet_category
 from mode_select import active
 from colour_roll import roller
@@ -9,6 +9,7 @@ from colour_roll import roller
 r = ""
 mode = "default"
 shuffle = "mix"
+priority = "column"
 step = 0
 active_sheets = sheet_list
 
@@ -40,7 +41,7 @@ while True:
 
         # user enters instruction
 
-        command = input("Instruction: ").lower()
+        command = input("Instruction: ").lower().rstrip(" ")
 
         # main body of the loop
 
@@ -52,20 +53,23 @@ while True:
             step = 0
 
         elif command in active_sheets:
-            print(roller(wb, command, shuffle))
+            print(roller(wb, command, shuffle, priority))
             r = command
 
         elif command == "r":
             if r != "":
-                print(roller(wb, r, shuffle))
+                print(roller(wb, r, shuffle, priority))
             else:
                 print("Please enter a valid sheet name to start!")
 
         elif command == "config":
-            print(shuffle_detail)
-            shuffle_set = input("Select: ".lower())
+            print(config_detail)
+            shuffle_set = input("Select Shuffle: ".lower())
             if shuffle_set in shuffle_options:
                 shuffle = shuffle_set
+            priority_set = input("Select Priority: ".lower())
+            if priority_set in priority_options:
+                priority = priority_set
 
         elif command == "quit":
             break

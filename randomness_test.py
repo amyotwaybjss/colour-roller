@@ -6,11 +6,11 @@ from env import wb
 from collections import Counter  # library
 
 
-def ran_test(workbook, sheet, tests: int):
+def ran_test(workbook, sheet, priority, tests: int):
     results = []
 
     for x in range(1, tests+1):
-        output = roller(workbook, sheet, "single").split(" ")[1]
+        output = roller(workbook, sheet, "single", priority).split(" ")[1]
         results.append(output)
 
     count_results = Counter(results).most_common()
@@ -26,5 +26,5 @@ def ran_test(workbook, sheet, tests: int):
     return results_output
 
 
-test = ran_test(wb, "test", 500)
+test = ran_test(wb, "test", "value", 500)
 print(test)
