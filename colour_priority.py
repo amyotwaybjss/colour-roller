@@ -9,7 +9,7 @@ from user_settings import sheet_category
 from mode_select import category_list, active
 import random as ran
 
-shuffle = "match"
+shuffle = "match"  # option are random, match, mix, single
 
 # Func start
 
@@ -17,37 +17,58 @@ sheet_name = wb['watercolours']
 max_col = sheet_name.max_column
 max_row = sheet_name.max_row
 
+all_columns = list(range(1, max_col+1))
+
 if shuffle == "random":
     shuffle = ran.choice(["match", "mix"])
 
-match = max_col == 1 or shuffle in ("match", "single")  # result binary TRUE/FALSE
+matching = max_col == 1 or shuffle in ("match", "single")  # result binary TRUE/FALSE
 
-choice = None
-header = None
-choose_col = 0
-choose_row = 0
+pick = []
+headers = []
 
-while choice is None:
-    choose_col, choose_row = ran.randint(1, max_col), ran.randint(2, max_row)
-    choice = sheet_name.cell(choose_row, choose_col).value
-    header = sheet_name.cell(1, choose_col).value
+for picks in range(1, 3):  # Python goes from a to b-1
 
-random_choice = f'{header}: {choice}'
-print(random_choice)
+    choice = None
+    header = None
+    choose_col = ''
 
-# print(choose_row)
-# print(choose_col)
+    while choice is None:
+        choose_col, choose_row = ran.choice(all_columns), ran.randint(2, max_row)
+        choice = sheet_name.cell(choose_row, choose_col).value
+        header = sheet_name.cell(1, choose_col).value
 
-# col_select1 = col_select2 = choose_col
+    if matching:
+        all_columns = [choose_col]
+    else:
+        all_columns.remove(choose_col)
+
+    random_choice = f'{header}: {choice}'
+
+    if random_choice in pick or (len(pick) == 1 and shuffle == "single"):
+        pass
+    else:
+        pick.append(random_choice)
+        if header in headers:
+            pass
+        else:
+            headers.append(header)
+
+# print(pick)
+
+first = pick[0]
+
+if (len(pick)) == 1:
+    result = f'{first} only'
+else:
+    if (len(headers)) == 1:
+        second = pick[1].split(' ')[1]
+    else:
+        second = pick[1]
+    result = f'{first} and {second}'
+
+print(result)
 
 # if single, then done
 # if match, then pick randomly from same col as usual.
 # if not match, then run process again.
-
-
-# print(col_select1)
-# print(col_select2)
-
-# list priority, picks a list, then picks from that list
-# colour priority, picks a colour from all lists, then picks another based on that list
-
