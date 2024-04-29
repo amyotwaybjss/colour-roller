@@ -12,6 +12,7 @@ from user_settings import wb_name, force_refresh
 
 new_line = "\n"
 shuffle_options = ["mix", "match", "random", "single"]
+priority_options = ["column", "value"]
 category_list = ["default", "admin"]
 
 introduction = inspect.cleandoc('''
@@ -28,12 +29,16 @@ instructions = new_line + inspect.cleandoc('''
         (Type 'help' to repeat this message)
         ''') + new_line
 
-shuffle_detail = new_line + inspect.cleandoc('''
+config_detail = new_line + inspect.cleandoc('''
         Shuffle Settings:
         mix = Picks from two different lists
         match = Picks from same list
         random = Picks either from the same list or different list
         single = Picks a single item
+        
+        Priority Settings: 
+        column = Random based on column. 
+        value = Random based on value. 
         ''') + new_line
 
 # Creating required functions
