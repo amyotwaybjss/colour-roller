@@ -8,7 +8,7 @@ def roller(workbook, sheet, shuffle):  # e.g. roller(wb, watercolours, match)
     if shuffle == "random":
         shuffle = ran.choice(["match", "mix"])
 
-    match = max_col == 1 or shuffle in ("match", "single")  # result binary TRUE/FALSE
+    matching = max_col == 1 or shuffle in ("match", "single")  # result binary TRUE/FALSE
 
     # Here we need to split - random cell, look up col, assign col_select1.
 
@@ -19,7 +19,7 @@ def roller(workbook, sheet, shuffle):  # e.g. roller(wb, watercolours, match)
 
     # if more than one column, set col_select2 to be different column
 
-    if not match:
+    if not matching:
         while col_select2 == col_select1:
             col_select2 = ran.randint(1, max_col)
 
