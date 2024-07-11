@@ -1,8 +1,10 @@
 from user_settings import sheet_category
 from env import category_list
 
-for values in sheet_category:
-    category_list.append(values)
+# for values in sheet_category:
+#     category_list.append(values)
+
+category_list.extend(sheet_category)
 
 
 def active(mode, cat, lis):
