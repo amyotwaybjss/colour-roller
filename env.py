@@ -47,7 +47,7 @@ config_detail = new_line + inspect.cleandoc('''
 
 def clean_exists(load, name):
     if path.isfile(f'./{name}_cleaned.xlsx') is False or force_refresh is True:
-        data_clean(load, name)
+        data_clean(load, name, True)
 
 
 def status(mode, sheets):
